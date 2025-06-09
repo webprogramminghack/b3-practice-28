@@ -48,6 +48,7 @@ const useHome = () => {
     hasNextPage,
     setKeyword,
     handleSearch,
+    keyword,
   };
 };
 

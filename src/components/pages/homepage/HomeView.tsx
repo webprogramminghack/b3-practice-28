@@ -14,6 +14,7 @@ const HomeView: React.FC = () => {
     hasNextPage,
     setKeyword,
     handleSearch,
+    keyword,
   } = useHome();
 
   return (
@@ -36,7 +37,11 @@ const HomeView: React.FC = () => {
           <p className="text-sm font-medium md:text-md text-neutral-900">
             Train, Battle, and Collect Your Favorites!
           </p>
-          <Searchbar setKeyword={setKeyword} handleSearch={handleSearch} />
+          <Searchbar
+            keyword={keyword}
+            setKeyword={setKeyword}
+            handleSearch={handleSearch}
+          />
         </div>
         <div>
           <img

@@ -3,6 +3,7 @@ import useSearch from '../../../hooks/useSearch';
 
 const SearchView = () => {
   const { pokemon, setKeyword, handleSearch } = useSearch();
+
   return <div>{/* <Card /> */}</div>;
 };
 

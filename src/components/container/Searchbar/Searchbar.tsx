@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-const Searchbar: React.FC<any> = ({ setKeyword, handleSearch }) => {
+const Searchbar: React.FC<any> = ({ keyword, setKeyword, handleSearch }) => {
   const { search } = useLocation();
 
   return (
@@ -16,14 +16,24 @@ const Searchbar: React.FC<any> = ({ setKeyword, handleSearch }) => {
         placeholder="Search Pokemon"
         className="w-full mr-2 text-neutral-500"
         onChange={(e) => setKeyword(e.target.value)}
-        value={search.split('=').pop() ?? ''}
+        defaultValue={keyword}
       />
-      <button
-        onClick={handleSearch}
-        className="w-[28px] h-[28px] rounded-full bg-secondary-300 flex justify-center items-center"
-      >
-        <img src="./icons/search.png" alt="search-icon" />
-      </button>
+      <div className="flex gap-2 items-center justify-center">
+        {search.split('=').pop() !== '' && (
+          <button
+            onClick={() => setKeyword('')}
+            className="w-[20px] h-[20px] rounded-full bg-neutral-400 flex justify-center items-center"
+          >
+            <p className="text-[10px] text-white">x</p>
+          </button>
+        )}
+        <button
+          onClick={handleSearch}
+          className="w-[28px] h-[28px] rounded-full bg-secondary-300 flex justify-center items-center"
+        >
+          <img src="./icons/search.png" alt="search-icon" />
+        </button>
+      </div>
     </form>
   );
 };

@@ -32,7 +32,7 @@ const useSearch = () => {
     setQuery(keyword);
   };
 
-  return { pokemon, setKeyword, handleSearch };
+  return { pokemon, keyword, setKeyword, handleSearch };
 };
 
 export default useSearch;
