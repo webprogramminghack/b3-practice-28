@@ -19,6 +19,7 @@ const Searchbar: React.FC<any> = ({ keyword, setKeyword, handleSearch }) => {
         defaultValue={keyword}
       />
       <div className="flex gap-2 items-center justify-center">
+        {/* silakan buat button jadi component */}
         {search.split('=').pop() !== '' && (
           <button
             onClick={() => setKeyword('')}
