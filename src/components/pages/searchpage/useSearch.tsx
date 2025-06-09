@@ -22,7 +22,11 @@ const useSearch = () => {
     return response;
   }, [query]);
 
-  const { data: pokemon } = useQuery({
+  const {
+    data: pokemon,
+    isError: pokemonError,
+    isLoading: pokemonLoading,
+  } = useQuery({
     queryFn: getPokemonList,
     queryKey: ['pokemon-list', query],
   });
@@ -32,7 +36,14 @@ const useSearch = () => {
     setQuery(keyword);
   };
 
-  return { pokemon, keyword, setKeyword, handleSearch };
+  return {
+    pokemon,
+    pokemonLoading,
+    pokemonError,
+    keyword,
+    setKeyword,
+    handleSearch,
+  };
 };
 
 export default useSearch;

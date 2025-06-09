@@ -1,7 +1,7 @@
 // import { useLocation, useNavigate } from "react-router-dom";
 import pokemonTitle from '../../../assets/pokemon-title.svg';
 import type { PokemonInterface } from '../../../interfaces/pokemon';
-import Card from '../../container/Card';
+import { Card } from '../../container/Card';
 import Searchbar from '../../container/Searchbar';
 import useHome from './useHome';
 
