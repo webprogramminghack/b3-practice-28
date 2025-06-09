@@ -21,7 +21,12 @@ const usePokemon = (id: string) => {
     queryKey: ['pokemon-detail', id],
   });
 
-  return { pokemon, isLoadingPokemon, isErrorPokemon, errorPokemon };
+  return {
+    pokemon,
+    isLoadingPokemon,
+    isErrorPokemon,
+    errorPokemon,
+  };
 };
 
 export default usePokemon;
