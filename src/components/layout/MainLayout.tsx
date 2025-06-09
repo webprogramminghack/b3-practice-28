@@ -1,8 +1,8 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import Navbar from "./navbar";
-import Footer from "./footer";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Navbar from './navbar';
+import Footer from './footer';
 
 const queryClient = new QueryClient();
 

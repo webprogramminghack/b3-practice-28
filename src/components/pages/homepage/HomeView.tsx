@@ -1,13 +1,20 @@
 // import { useLocation, useNavigate } from "react-router-dom";
-import pokemonTitle from "../../../assets/pokemon-title.svg";
-import type { PokemonInterface } from "../../../interfaces/pokemon";
-import Card from "../../container/Card";
-import Searchbar from "../../container/Searchbar";
-import useHome from "./useHome";
+import pokemonTitle from '../../../assets/pokemon-title.svg';
+import type { PokemonInterface } from '../../../interfaces/pokemon';
+import Card from '../../container/Card';
+import Searchbar from '../../container/Searchbar';
+import useHome from './useHome';
 
 const HomeView: React.FC = () => {
-  const { pokemons, isLoading, ref, isFetchingNextPage, hasNextPage } =
-    useHome();
+  const {
+    pokemons,
+    isLoading,
+    ref,
+    isFetchingNextPage,
+    hasNextPage,
+    setKeyword,
+    handleSearch,
+  } = useHome();
 
   return (
     <>
@@ -16,7 +23,7 @@ const HomeView: React.FC = () => {
         className="bg-accent-yellow relative"
         style={{
           backgroundImage: "url('background-hero.png')",
-          backgroundRepeat: "repeat",
+          backgroundRepeat: 'repeat',
         }}
       >
         <div className="flex flex-col items-center pt-35 justify-center text-center gap-3.5 mx-auto px-4 max-w-[686px]">
@@ -29,7 +36,7 @@ const HomeView: React.FC = () => {
           <p className="text-sm font-medium md:text-md text-neutral-900">
             Train, Battle, and Collect Your Favorites!
           </p>
-          <Searchbar />
+          <Searchbar setKeyword={setKeyword} handleSearch={handleSearch} />
         </div>
         <div>
           <img
@@ -47,7 +54,7 @@ const HomeView: React.FC = () => {
         </h1>
         {!isLoading &&
           pokemons?.map((pokemon: PokemonInterface) => (
-            <Card key={pokemon.name} name={pokemon.name} url={pokemon.url} />
+            <Card key={pokemon.url} url={pokemon.url} />
           ))}
       </div>
       {/* infinite scroll trigger */}
