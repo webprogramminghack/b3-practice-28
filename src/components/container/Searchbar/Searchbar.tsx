@@ -1,8 +1,20 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-const Searchbar: React.FC<any> = ({ keyword, setKeyword, handleSearch }) => {
+const Searchbar: React.FC = () => {
   const { search } = useLocation();
+
+  const [keyword, setKeyword] = React.useState(search.split('=').pop() ?? '');
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    location.href = `/search?name=${keyword}`;
+  };
+
+  const reset = () => {
+    setKeyword('');
+    location.href = '/search?name=';
+  };
 
   return (
     <form
@@ -22,7 +34,7 @@ const Searchbar: React.FC<any> = ({ keyword, setKeyword, handleSearch }) => {
         {/* silakan buat button jadi component */}
         {search.split('=').pop() !== '' && (
           <button
-            onClick={() => setKeyword('')}
+            onClick={() => reset()}
             className="w-[20px] h-[20px] rounded-full bg-neutral-400 flex justify-center items-center"
           >
             <p className="text-[10px] text-white">x</p>

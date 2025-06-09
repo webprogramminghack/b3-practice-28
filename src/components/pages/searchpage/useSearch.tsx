@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { getPokemonByName } from '../components/pages/searchpage/helper';
+import { getPokemonByName } from './helper';
 import { useQuery } from '@tanstack/react-query';
 
 const useSearch = () => {

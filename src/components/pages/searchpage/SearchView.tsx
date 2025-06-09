@@ -1,8 +1,9 @@
-import Card from '../../container/Card';
-import useSearch from '../../../hooks/useSearch';
+// import Card from '../../container/Card';
+
+import useSearch from './useSearch';
 
 const SearchView = () => {
-  const { pokemon, setKeyword, handleSearch } = useSearch();
+  const { pokemon } = useSearch();
 
   return <div>{/* <Card /> */}</div>;
 };

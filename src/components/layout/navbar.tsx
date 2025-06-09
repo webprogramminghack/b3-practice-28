@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
-import logo from '../../assets/logo-pokemon.svg';
 import { useLocation } from 'react-router-dom';
+import logo from '../../assets/logo-pokemon.svg';
 import Searchbar from '../container/Searchbar';
-import useSearch from '../../hooks/useSearch';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
-  const { keyword, setKeyword, handleSearch } = useSearch();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,11 +36,7 @@ const Navbar = () => {
           }
         >
           <img src={logo} alt="" />
-          <Searchbar
-            keyword={keyword}
-            setKeyword={setKeyword}
-            handleSearch={handleSearch}
-          />
+          <Searchbar />
         </div>
       )}
     </>

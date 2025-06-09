@@ -1,14 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { getPokemons } from './helper';
 import { useInView } from 'react-intersection-observer';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { getPokemons } from './helper';
 
 const useHome = () => {
-  const [keyword, setKeyword] = useState('');
-  const navigate = useNavigate();
-
   const {
     data: pokemonData,
     isLoading,
@@ -33,11 +28,6 @@ const useHome = () => {
     },
   });
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    navigate(`/search?name=${keyword}`);
-  };
-
   const pokemons = pokemonData?.pages.flatMap((page: any) => page.results);
 
   return {
@@ -46,9 +36,6 @@ const useHome = () => {
     ref,
     isFetchingNextPage,
     hasNextPage,
-    setKeyword,
-    handleSearch,
-    keyword,
   };
 };
 

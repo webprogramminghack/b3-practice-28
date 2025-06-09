@@ -9,14 +9,28 @@ const Card: React.FC<PokemonInterface> = ({ url }) => {
 
   return (
     <Link to={`/pokemon/${pokemonId}`}>
-      <div className="w-[361px] h-[330px] text-accent-red flex flex-col items-center justify-center">
-        <div>
-          <img src={pokemon?.sprites.front_default} alt="" />
+      <div className="h-[310px] p-3 text-neutral-900 flex flex-col border border-neutral-300 rounded-2xl mb-4">
+        <div className="bg-neutral-100 rounded-full mx-auto">
+          <img
+            className="w-[200px]"
+            src={pokemon?.sprites.other['official-artwork'].front_default}
+            alt=""
+          />
         </div>
-        <p>{pokemon?.name}</p>
-        {pokemon?.abilities.map((ability: any) => (
-          <p key={ability.ability.name}>{ability.ability.name}</p>
-        ))}
+        <div>
+          <p className="text-neutral-500">{pokemonId?.padStart(3, '0')}</p>
+          <p className="font-bold">{pokemon?.name}</p>
+          <div className="flex gap-2">
+            {pokemon?.abilities.map((ability: any) => (
+              <p
+                className="border border-neutral-300 px-2 rounded-md mt-4"
+                key={ability.ability.name}
+              >
+                {ability.ability.name}
+              </p>
+            ))}
+          </div>
+        </div>
       </div>
     </Link>
   );

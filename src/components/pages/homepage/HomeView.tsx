@@ -6,16 +6,8 @@ import Searchbar from '../../container/Searchbar';
 import useHome from './useHome';
 
 const HomeView: React.FC = () => {
-  const {
-    pokemons,
-    isLoading,
-    ref,
-    isFetchingNextPage,
-    hasNextPage,
-    setKeyword,
-    handleSearch,
-    keyword,
-  } = useHome();
+  const { pokemons, isLoading, ref, isFetchingNextPage, hasNextPage } =
+    useHome();
 
   return (
     <>
@@ -37,11 +29,7 @@ const HomeView: React.FC = () => {
           <p className="text-sm font-medium md:text-md text-neutral-900">
             Train, Battle, and Collect Your Favorites!
           </p>
-          <Searchbar
-            keyword={keyword}
-            setKeyword={setKeyword}
-            handleSearch={handleSearch}
-          />
+          <Searchbar />
         </div>
         <div>
           <img
