@@ -2,7 +2,7 @@ import { CardSearch } from '../../container/Card';
 import useSearch from './useSearch';
 
 const SearchView = () => {
-  const { pokemon, pokemonLoading, pokemonError, keyword } = useSearch();
+  const { pokemon, pokemonLoading, pokemonError, keyword, query } = useSearch();
 
   return (
     <>
@@ -19,6 +19,8 @@ const SearchView = () => {
             <>
               <img className="mx-auto" src="./not-found.png" alt="" />
             </>
+          ) : query === '' ? (
+            <></>
           ) : (
             <CardSearch pokemon={pokemon} />
           )}

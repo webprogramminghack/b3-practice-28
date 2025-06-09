@@ -41,6 +41,7 @@ const useSearch = () => {
     pokemonLoading,
     pokemonError,
     keyword,
+    query,
     setKeyword,
     handleSearch,
   };
